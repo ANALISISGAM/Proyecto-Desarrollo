@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_editar.css' %}">
+    <title>Editar Producto</title>
+</head>
+
+{% block content %}     
+<h2 style="text-align: center;"><b>Producto</b> </h2>
+<h3>Información actual del producto:</h3>
+<div style="background-color: white; padding: 15px;" >
+<ul style="text-align: center;">
+    <li style="list-style: none;">ID: {{ producto.id }}</li>
+    <li style="list-style: none;">Nombre: {{ producto.nombre }}</li>
+    <li  style="list-style: none;">Imagen: {{ producto.imagen1 }}</li>
+    <li  style="list-style: none;">Precio: {{ producto.precio }}</li>
+</ul>
+</div ><br><br><br><br>
+<div style="align-self: center;">
+<form method="post" name="editarProducto" style="align-items: center;">
+    {% csrf_token %}
+    <!--{{ form.as_p }}-->
+    <label for="nombre"><b>Nombre: </b></label><br><input type="text" name="nombre" placeholder="Ingresa el Nombre" style="margin-left: 10px;"><br><br>
+    <label for="imagen1"><b>Imagen: </b> </label><br><input type="text" name="imagen1" placeholder="imagen.jpg"><br><br>
+    <label for="precio"><b>Precio: </b></label><br><input type="text" name="precio" id="precio" placeholder="Precio"><br><br>
+
+    <button type="submit" class="btn badge btn-dark" style="align-items: center; padding: 10px; font-size: medium;">Guardar</button>
+</form>
+</div>
+{% endblock %}

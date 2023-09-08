@@ -1,0 +1,79 @@
+
+#contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/static/images/imagenfondoinicio.png');
+    background-size: cover;
+    
+
+}
+#contenido {
+    align-self: center;
+    align-items: center;
+    padding: 50px;
+    margin-top: 300px;
+
+}
+
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+    color: #dc301d;
+    font-family:'Caveat', cursive;
+    font-style: inherit;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+}
+
+p#fecha-hora {
+    text-align: center;
+    font-size: 30px;
+    color: #fefefe;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-family:'Black Ops One', sans-serif;
+    animation: fadeInUp 4s ease; /* Agrega una animación fadeInUp de 2 segundos */
+}
+
+
+#boton {
+    align-items: center;
+    background-color: #925f33;   
+    padding: 15px 35px;
+    margin: 10px;
+    font-size: 24px;
+    border-radius: 5px;
+    font-family: fantasy;  
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 18px;
+    margin: 0px 50px 50px 0;
+
+}
+#divboton{
+    text-align: center;
+}
+a{
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+#boton:hover {
+    background-color: #374602;
+}
+
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

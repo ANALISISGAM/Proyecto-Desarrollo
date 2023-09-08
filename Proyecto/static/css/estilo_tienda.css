@@ -1,0 +1,29 @@
+h1.display-4 {
+    text-align: center;
+    transition: transform 0.5s ease;
+    transform-origin: center; /* Establece el punto de origen de la transformación en el centro del elemento */
+} 
+
+/* Aplica la ampliación al pasar el cursor */
+h1.display-4:hover {
+    transform: scale(1.2); }
+
+
+
+.card {
+    background-color: rgba(125, 78, 17, 0.674);
+    text-align: center; 
+    border: none; 
+}
+
+.card .card-title {
+    font-weight: bold; 
+}
+
+.card .btn {
+    display: block;
+    margin: 0 auto; 
+}
+.col-4{
+    background-color: blanchedalmond;
+}

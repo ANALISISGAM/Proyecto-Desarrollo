@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Imágenes</title>
+    <!-- <style>
+   
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .gallery img {
+            max-width: 100%;
+            height: auto;
+        }
+        .gallery img:hover {
+            transform: translate(-50%, -50%) scale(1.7);
+            cursor: pointer;
+        }
+    </style>  -->
+</head>
+<body>
+    {% block content %}
+    <h1>¡Ven a conocernos!</h1>
+
+    <div class="gallery" style="display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;">
+        <img src="{% static 'galeria9.webp' %}" alt="Imagen 1" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'galeria3.jpg' %}" alt="Imagen 2" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'galeria4.jpg' %}" alt="Imagen 3" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'galeria5.jpg' %}" alt="Imagen 4" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'galeria6.jpg' %}" alt="Imagen 5" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'galeria7.jpg' %}" alt="Imagen 6" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'Proyecto/static/images/imagenprod7.jpg' %}" alt="Imagen 7" style="max-width: 100%;
+        height: auto;"> 
+        <img src="{% static 'Proyecto/static/images/imagenprod8.jpg' %}" alt="Imagen 8" style="max-width: 100%;
+        height: auto;">
+        <img src="{% static 'Proyecto/static/images/imagenprod10.jpg' %}" alt="Imagen 9" style="max-width: 100%;
+        height: auto;">
+    </div>
+{% endblock content %}
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/estilo_inicio.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Black+Ops+One&display=swap">
+    <title>"Café de autor"  Página de Inicio</title>
+</head>
+<body>
+
+    <div id="contenedor">
+        <div id="contenido">
+        <h1>"Café de Autor"</h1>
+        <p id="fecha-hora"></p>
+        <div id="divboton">
+        <button id="boton"><a href="{% url 'tienda' %}">Tienda</a></button>
+        <button id="boton"><a href="{% url 'gestion' %}">Gestión</a></button>
+        </div>
+       </div>
+    </div>
+
+    <script>
+        function mostrarFechaYHora() {
+            var fecha = new Date();
+            var opciones = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            var fechaHoraActual = fecha.toLocaleDateString('es-ES', opciones);
+            document.getElementById("fecha-hora").textContent = fechaHoraActual;
+        }
+
+        setInterval(mostrarFechaYHora, 1000); // Actualiza la fecha y hora cada segundo
+        mostrarFechaYHora();
+    </script>
+</body>
+</html>
+

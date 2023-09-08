@@ -1,0 +1,59 @@
+{% load static %}
+<script src="https://www.paypal.com/sdk/js?client-id=AShBFHxGc5HU8NZAqUOxwVtR51NFea7MPN8dORieN9BMMQ7R6_4qHB-bUkssZxZRIt1IpI9XGx2apyW7"></script>
+<!--<link rel="stylesheet" href="{% static 'css/carrito.css' %}"> NO CARGA-->
+
+<div style=" border: 5px solid rgb(87, 48, 21); margin: 20px; display: inline-block; border-radius: 18px; background-color: white;"><br>
+    <table class="table" >
+        <thead>
+            <tr><th colspan="5" id="titulo" style="font-size: 25px;text-align: center; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Revisa tu compra</th></tr>
+            <tr>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Subtotal</th>
+                <th>Modificar</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% if request.session.carrito.items %}
+            {% for key,value in request.session.carrito.items %}
+            <tr>
+                <td>{{value.nombre}}</td>
+                <td>{{value.precio}}</td>
+                <td>{{value.cantidad}}</td>
+                <td>{{value.subtotal}}</td>
+                <td><a href="{% url 'Agregar' key %}" class="btn badge btn-dark">+</a></td>
+                <td><a href="{% url 'Sacar' key %}" class="btn badge btn-dark">-</a></td>
+            </tr>
+            {% endfor %}
+            {% else %}
+            <tr><td colspan="5"><p>No hay Productos Seleccionados</p></td></tr>
+            {% endif %}
+            <tr>
+                <td colspan="4">Total a pagar:</td><td>{{total_carrito}}€</td>
+            </tr>
+            <tr>
+                <td colspan="2"><a href="#" class="btn btn-dark">Pagar: </a>
+                <td colspan="2"><div id="paypal-button-container"></div></td>  <!--DEJO DE FUNCIONAR PAYPAL YA NO ME PERMITE PAGAR-->  
+                <td ><a href="{% url 'Limpiar'%}" class="btn btn-dark">Limpiar</a></td>
+            </tr>
+            <script>
+                paypal.Buttons({
+                      createOrder: function(data, actions) {
+                          return actions.order.create({
+                              purchase_units: [{
+                                  amount: {
+                                      value: '{{total_carrito}}'
+                                  }
+                              }]
+                          });
+                }, }).render('#paypal-button-container');             
+              </script>
+          </tbody>
+
+    </table>
+
+</body>  
+        
+</div>

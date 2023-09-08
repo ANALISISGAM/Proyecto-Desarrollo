@@ -1,0 +1,54 @@
+#navbarTogglerDemo01{
+    background-color: rgb(92, 62, 24);
+}
+
+#logo{
+    color: #dc301d;
+    font-family:'Caveat', cursive;
+    font-weight: bold;
+    font-size: 35px;
+}
+.enlaces {
+    font-size: 20px !important;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(244, 217, 164) !important;
+    text-decoration: none;
+}
+.nav-item{
+    margin-right: 30px;
+}
+.nav-item:hover{
+    background-color:rgb(43, 31, 6);
+    border-radius: 10px;
+    margin: 0;
+}
+.btn.btn-outline-success {
+    background-color: rgb(244, 217, 164);
+    border-color: black;
+    color: rgb(92, 62, 24);
+    font-style: inherit;
+}
+.content-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+footer {
+    background-color: rgb(92, 62, 24);
+    color: blanchedalmond;
+    font-size: medium;
+    text-align: right;
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+    clear: both; /*que no se superponga con el conte4nido*/
+}
+
+body {
+    background-color: blanchedalmond !important;
+   
+}

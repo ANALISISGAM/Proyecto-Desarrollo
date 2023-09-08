@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/datos.css'%}">
+    <title>Ingresar productos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    {% block content %}
+    <h1 style="margin-top: 10px;">Ingresa los productos:</h1><br><br><br>
+    <div id="ingreso" style="margin-top: 20px;text-align: center;">
+    <form action="insertarProducto/" method="post" name='gestion/insertarProducto'> {% csrf_token %}
+        <input type="number" name="id" id="id" placeholder="id de Producto">
+        <input type="text" name="nombre" id="nombre" placeholder="nombre del producto">
+        <input type="text" name="imagen1" id="imagen1" min="0" step="0.1" placeholder="Imagen">
+        <input type="number" name="precio" id="precio" min="0" step="1" placeholder="Precio">
+        <input type="submit" value="Insertar" name='Insertar' style="background-color: rgb(34, 20, 3);color: rgb(219, 171, 98); border-radius: 5px; border: 1px solid rgb(34, 20, 3);padding-left: 3px; padding-right: 3px;">
+    </form>
+   </div><!--ojo hice superusser pero no lo pide al ingresar los productos-->
+   <br><br><br><br>
+
+   <div class="container" >
+    <div class="row">
+        <div class="col-12">
+         <table id="tabla" style=" border: 2px black solid;
+         background-color: white; 
+         width: 100%; margin: 0 auto; 
+         border-collapse: separate;
+         border-spacing: 10px;">
+           <thead id="thead" style=" background-color: bisque;">
+            <tr style=" text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            border-collapse: collapse;
+            font-size: large;background-color: bisque; padding: 0%;">
+                <th id="th" colspan="4">ID</th>
+                <th id="th" colspan="4">Nombre</th>
+                <th id="th" colspan="4">Imagen</th>
+                <th id="th" colspan="4">Precio</th>
+                <th id="th" colspan="4">Eliminar</th>
+                <th id="th" colspan="4">Editar</th>
+
+            </tr>
+            </thead>
+        <tbody>
+            {% for p in object_list %}
+            <tr style="border-bottom: 0.5px rgb(41,30,5);">
+                <td colspan="4">{{ p.id }}</td>
+                <td colspan="4">{{ p.nombre }}</td>
+                <td colspan="4">{{ p.imagen1 }}</td>
+                <td colspan="4">{{ p.precio }}</td>
+                <td colspan="4" style="text-align: center;">
+                    <form method="post" action="{% url 'eliminarProducto' p.id %}">
+                        {% csrf_token %}
+                        <button type="submit" style="background-color: rgb(34, 20, 3);color: rgb(219, 171, 98); border-radius: 5px; border: 1px solid rgb(34, 20, 3);padding: 5px; ">Eliminar Producto</button>
+                    </form>
+                </td>
+                <td colspan="4" style="text-align: center;">
+                    <form method="post" action="{% url 'editarProducto' p.id %}">
+                        {% csrf_token %}
+                        <button type="submit" style="background-color: rgb(34, 20, 3);color: rgb(219, 171, 98); border-radius: 5px; border: 1px solid rgb(34, 20, 3);padding: 5px ;">Editar Producto</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}   
+        </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+    <br><br><br><br><br>
+
+</body>
+{% endblock content %}
+</html>

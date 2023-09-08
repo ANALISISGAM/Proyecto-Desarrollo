@@ -1,0 +1,19 @@
+
+table#th{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: .5px solid rgb(41, 30, 5);
+    font-size: medium;
+}
+
+table#table{
+    border: 2px black solid;
+    background-color: white; 
+    width: 95%; margin: 0 auto; 
+    border-collapse: separate;
+    border-spacing: 10px;
+}
+table#thead{
+    background-color: bisque;
+}
+/*prueba de estilos, pero no aplica */
